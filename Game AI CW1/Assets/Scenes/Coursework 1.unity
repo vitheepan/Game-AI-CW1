@@ -171,14 +171,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a315cd0fcb5e34ea7bd9de0ebfbe3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 256
-  height: 256
-  depth: 20
-  scale: 20
+  width: 100
+  height: 100
+  depth: 10
+  scale: 10
   xOffset: 100
   yOffset: 100
   amplitude: 10
-  frequency: 1
+  frequency: 0.5
   gradient:
     serializedVersion: 2
     key0: {r: 0, g: 1, b: 0.32016444, a: 1}
@@ -209,6 +209,10 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   treePrefab: {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
+  rockPrefab: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717, type: 3}
+  housePrefab: {fileID: 120862, guid: a0f4d4c6b680301498750c356043900a, type: 3}
+  numberOfHouse: 10
+  numberOfRocks: 10
   numberOfTrees: 10
   minDistance: 10
   maxDistance: 20

@@ -14,7 +14,12 @@ public class PerlinGeneration : MonoBehaviour
     public float frequency = 1f;
     public Gradient gradient;
 
-    public GameObject treePrefab; // Assign a tree prefab in the inspector
+    public GameObject treePrefab;
+    public GameObject rockPrefab;
+    public GameObject housePrefab;
+
+    public int numberOfHouse = 10;
+    public int numberOfRocks = 10;
     public int numberOfTrees = 10;
     public float minDistance = 10f;
     public float maxDistance = 20f;
@@ -34,6 +39,8 @@ public class PerlinGeneration : MonoBehaviour
         UpdateMesh();
 
         SpawnTrees();
+        SpawnRocks();
+        SpawnHouses();
     }
 
     private void GenerateTerrain()
@@ -128,6 +135,64 @@ public class PerlinGeneration : MonoBehaviour
             {
                 Vector3 treePosition = new Vector3(randomX, SampleTerrain(randomX, randomY), randomY);
                 Instantiate(treePrefab, treePosition, Quaternion.identity);
+            }
+        }
+    }
+
+    private void SpawnRocks()
+    {
+        for (int i = 0; i < numberOfRocks; i++)
+        {
+            // Generate a random position within the terrain bounds
+            float randomX = Random.Range(0f, width);
+            float randomY = Random.Range(0f, height);
+            Vector3 randomPosition = new Vector3(randomX, 0f, randomY);
+
+            // Check if the position is too close to an existing tree
+            bool tooClose = false;
+            foreach (GameObject rock in GameObject.FindGameObjectsWithTag("Rock"))
+            {
+                if (Vector3.Distance(rock.transform.position, randomPosition) < minDistance)
+                {
+                    tooClose = true;
+                    break;
+                }
+            }
+
+            // Spawn a tree prefab if the position is valid
+            if (!tooClose)
+            {
+                Vector3 rockPosition = new Vector3(randomX, SampleTerrain(randomX, randomY), randomY);
+                Instantiate(rockPrefab, rockPosition, Quaternion.identity);
+            }
+        }
+    }
+
+    private void SpawnHouses()
+    {
+        for (int i = 0; i < numberOfHouse; i++)
+        {
+            // Generate a random position within the terrain bounds
+            float randomX = Random.Range(0f, width);
+            float randomY = Random.Range(0f, height);
+            Vector3 randomPosition = new Vector3(randomX, 0f, randomY);
+
+            // Check if the position is too close to an existing tree
+            bool tooClose = false;
+            foreach (GameObject house in GameObject.FindGameObjectsWithTag("House"))
+            {
+                if (Vector3.Distance(house.transform.position, randomPosition) < minDistance)
+                {
+                    tooClose = true;
+                    break;
+                }
+            }
+
+            // Spawn a tree prefab if the position is valid
+            if (!tooClose)
+            {
+                Vector3 housePosition = new Vector3(randomX, SampleTerrain(randomX, randomY), randomY);
+                Instantiate(housePrefab, housePosition, Quaternion.identity);
             }
         }
     }
