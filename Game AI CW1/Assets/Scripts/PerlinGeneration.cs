@@ -14,9 +14,14 @@ public class PerlinGeneration : MonoBehaviour
     public float frequency = 1f;
     public Gradient gradient;
 
+    public GameObject treePrefab; // Assign a tree prefab in the inspector
+    public int numberOfTrees = 10;
+    public float minDistance = 10f;
+    public float maxDistance = 20f;
+
     private Mesh mesh;
     private new Renderer renderer;
-    private Vector3[] vertices;
+    public Vector3[] vertices;
     private int[] triangles;
 
     private void Start()
@@ -27,6 +32,8 @@ public class PerlinGeneration : MonoBehaviour
 
         GenerateTerrain();
         UpdateMesh();
+
+        SpawnTrees();
     }
 
     private void GenerateTerrain()
@@ -95,4 +102,42 @@ public class PerlinGeneration : MonoBehaviour
 
         mesh.colors = colors;
     }
+
+    private void SpawnTrees()
+    {
+        for (int i = 0; i < numberOfTrees; i++)
+        {
+            // Generate a random position within the terrain bounds
+            float randomX = Random.Range(0f, width);
+            float randomY = Random.Range(0f, height);
+            Vector3 randomPosition = new Vector3(randomX, 0f, randomY);
+
+            // Check if the position is too close to an existing tree
+            bool tooClose = false;
+            foreach (GameObject tree in GameObject.FindGameObjectsWithTag("Tree"))
+            {
+                if (Vector3.Distance(tree.transform.position, randomPosition) < minDistance)
+                {
+                    tooClose = true;
+                    break;
+                }
+            }
+
+            // Spawn a tree prefab if the position is valid
+            if (!tooClose)
+            {
+                Vector3 treePosition = new Vector3(randomX, SampleTerrain(randomX, randomY), randomY);
+                Instantiate(treePrefab, treePosition, Quaternion.identity);
+            }
+        }
+    }
+
+    private float SampleTerrain(float x, float y)
+    {
+        float xCoord = x / width * scale + xOffset;
+        float yCoord = y / height * scale + yOffset;
+        float sample = Mathf.PerlinNoise(xCoord * frequency, yCoord * frequency) * amplitude;
+        return sample;
+    }
+
 }
