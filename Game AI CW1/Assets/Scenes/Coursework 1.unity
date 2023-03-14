@@ -211,7 +211,7 @@ MonoBehaviour:
   treePrefab: {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
   rockPrefab: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717, type: 3}
   housePrefab: {fileID: 120862, guid: a0f4d4c6b680301498750c356043900a, type: 3}
-  numberOfHouse: 10
+  numberOfHouse: 2
   numberOfRocks: 10
   numberOfTrees: 10
   minDistance: 10
