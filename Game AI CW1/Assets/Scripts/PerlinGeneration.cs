@@ -61,6 +61,7 @@ public class PerlinGeneration : MonoBehaviour
     {
         vertices = new Vector3[(width + 1) * (height + 1)];
 
+
         for (int y = 0; y <= height; y++)
         {
             for (int x = 0; x <= width; x++)

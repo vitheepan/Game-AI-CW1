@@ -213,8 +213,8 @@ MonoBehaviour:
   housePrefab: {fileID: 120862, guid: a0f4d4c6b680301498750c356043900a, type: 3}
   goldcoinPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
   playerPrefab: {fileID: 2269393023965653462, guid: c2b417532bf12f649b110188320a5ded, type: 3}
-  numberofCoins: 10
-  numberOfHouse: 2
+  numberOfCoins: 6
+  numberOfHouse: 4
   numberOfRocks: 10
   numberOfTrees: 10
   minDistance: 10
@@ -502,6 +502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1915775248}
   - component: {fileID: 1915775247}
+  - component: {fileID: 1915775249}
   m_Layer: 0
   m_Name: A*
   m_TagString: Untagged
@@ -521,6 +522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa74ac0148bb7c4ba3e2724fa456b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeker: {fileID: 0}
+  target: {fileID: 0}
 --- !u!4 &1915775248
 Transform:
   m_ObjectHideFlags: 0
@@ -536,3 +539,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1915775249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915775246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1b763207b40a344bb8ee27aee59ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unwalkableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  gridWorldSize: {x: 200, y: 200}
+  nodeRadius: 0.5
+  gridSizeX: 0
+  gridSizeY: 0
