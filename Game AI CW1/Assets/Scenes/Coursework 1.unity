@@ -178,7 +178,7 @@ MonoBehaviour:
   xOffset: 100
   yOffset: 100
   amplitude: 10
-  frequency: 0.25
+  frequency: 0.5
   gradient:
     serializedVersion: 2
     key0: {r: 0, g: 1, b: 0.32016444, a: 1}
@@ -211,7 +211,9 @@ MonoBehaviour:
   treePrefab: {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
   rockPrefab: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717, type: 3}
   housePrefab: {fileID: 120862, guid: a0f4d4c6b680301498750c356043900a, type: 3}
+  goldcoinPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
   playerPrefab: {fileID: 2269393023965653462, guid: c2b417532bf12f649b110188320a5ded, type: 3}
+  numberofCoins: 10
   numberOfHouse: 2
   numberOfRocks: 10
   numberOfTrees: 10
@@ -311,7 +313,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: b4e2ee64ed487ad4a93682db0d58c399, type: 2}
 --- !u!1 &1143571724
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143571724}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 183.4, z: -232.3}
+  m_LocalPosition: {x: 45, y: 50, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -490,3 +492,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1915775246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915775248}
+  - component: {fileID: 1915775247}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1915775247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915775246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa74ac0148bb7c4ba3e2724fa456b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1915775248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915775246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

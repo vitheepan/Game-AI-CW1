@@ -7,6 +7,9 @@ public class CharacterController : MonoBehaviour
 {
     public NavMeshAgent agent;
 
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -36,5 +39,17 @@ public class CharacterController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+
+    }
+
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<Rigidbody>().AddForce(firePoint.forward * 1000);
+        Destroy(bullet, 2f);
     }
 }

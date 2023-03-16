@@ -18,9 +18,11 @@ public class PerlinGeneration : MonoBehaviour
     public GameObject treePrefab;
     public GameObject rockPrefab;
     public GameObject housePrefab;
+    public GameObject goldcoinPrefab;
 
     public GameObject playerPrefab;
 
+    public int numberOfCoins = 10;
     public int numberOfHouse = 10;
     public int numberOfRocks = 10;
     public int numberOfTrees = 10;
@@ -49,6 +51,7 @@ public class PerlinGeneration : MonoBehaviour
         SpawnTrees();
         SpawnRocks();
         SpawnHouses();
+        SpawnCoins();
 
         Vector3 playerSpawnPoint = new Vector3(Random.Range(0f, 1f) * width, 0f, Random.Range(0f, 1f) * height);
         Instantiate(playerPrefab, playerSpawnPoint, Quaternion.identity);
@@ -198,6 +201,32 @@ public class PerlinGeneration : MonoBehaviour
             {
                 Vector3 housePosition = new Vector3(randomX, SampleTerrain(randomX, randomY), randomY);
                 Instantiate(housePrefab, housePosition, Quaternion.identity);
+            }
+        }
+    }
+
+    private void SpawnCoins()
+    {
+        for (int i = 0; i < numberOfCoins; i++)
+        {
+            float randomX = Random.Range(0f, width);
+            float randomY = Random.Range(0f, height);
+            Vector3 randomPosition = new Vector3(randomX, 0f, randomY);
+
+            bool tooClose = false;
+            foreach (GameObject coin in GameObject.FindGameObjectsWithTag("Coin"))
+            {
+                if (Vector3.Distance(coin.transform.position, randomPosition) < minDistance)
+                {
+                    tooClose = true;
+                    break;
+                }
+            }
+
+            if (!tooClose)
+            {
+                Vector3 coinPosition = new Vector3(randomX, SampleTerrain(randomX, randomY), randomY);
+                Instantiate(goldcoinPrefab, coinPosition, Quaternion.identity);
             }
         }
     }
