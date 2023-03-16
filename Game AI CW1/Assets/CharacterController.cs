@@ -14,6 +14,16 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
+            agent.Move(movement * agent.speed * Time.deltaTime);
+        }
+
         if (Input.GetMouseButton(0))
         {
             // Cast a ray from the mouse position to the terrain to get the target location
@@ -25,5 +35,6 @@ public class CharacterController : MonoBehaviour
                 agent.SetDestination(hit.point);
             }
         }
+
     }
 }
