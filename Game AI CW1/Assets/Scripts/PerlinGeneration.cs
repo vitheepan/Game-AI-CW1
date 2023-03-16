@@ -59,6 +59,9 @@ public class PerlinGeneration : MonoBehaviour
 
     private void GenerateTerrain()
     {
+        float xOffset = -transform.position.x;
+        float yOffset = -transform.position.z;
+
         vertices = new Vector3[(width + 1) * (height + 1)];
 
 

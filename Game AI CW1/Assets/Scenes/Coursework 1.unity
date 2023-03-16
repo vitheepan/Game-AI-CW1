@@ -216,7 +216,7 @@ MonoBehaviour:
   numberOfCoins: 6
   numberOfHouse: 4
   numberOfRocks: 10
-  numberOfTrees: 10
+  numberOfTrees: 100
   minDistance: 10
   maxDistance: 20
   vertices:
