@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PerlinGeneration : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PerlinGeneration : MonoBehaviour
     public GameObject rockPrefab;
     public GameObject housePrefab;
 
+    public GameObject playerPrefab;
+
     public int numberOfHouse = 10;
     public int numberOfRocks = 10;
     public int numberOfTrees = 10;
@@ -29,11 +32,16 @@ public class PerlinGeneration : MonoBehaviour
     public Vector3[] vertices;
     private int[] triangles;
 
+    NavMeshSurface navMeshSurface;
+
     private void Start()
     {
         mesh = new Mesh();
         renderer = GetComponent<Renderer>();
         GetComponent<MeshFilter>().mesh = mesh;
+        navMeshSurface = GetComponent<NavMeshSurface>();
+        
+
 
         GenerateTerrain();
         UpdateMesh();
@@ -41,6 +49,9 @@ public class PerlinGeneration : MonoBehaviour
         SpawnTrees();
         SpawnRocks();
         SpawnHouses();
+
+        Vector3 playerSpawnPoint = new Vector3(Random.Range(0f, 1f) * width, 0f, Random.Range(0f, 1f) * height);
+        Instantiate(playerPrefab, playerSpawnPoint, Quaternion.identity);
     }
 
     private void GenerateTerrain()
@@ -108,18 +119,19 @@ public class PerlinGeneration : MonoBehaviour
         }
 
         mesh.colors = colors;
+        navMeshSurface.BuildNavMesh();
+        
+
     }
 
     private void SpawnTrees()
     {
         for (int i = 0; i < numberOfTrees; i++)
         {
-            // Generate a random position within the terrain bounds
             float randomX = Random.Range(0f, width);
             float randomY = Random.Range(0f, height);
             Vector3 randomPosition = new Vector3(randomX, 0f, randomY);
 
-            // Check if the position is too close to an existing tree
             bool tooClose = false;
             foreach (GameObject tree in GameObject.FindGameObjectsWithTag("Tree"))
             {
@@ -130,7 +142,6 @@ public class PerlinGeneration : MonoBehaviour
                 }
             }
 
-            // Spawn a tree prefab if the position is valid
             if (!tooClose)
             {
                 Vector3 treePosition = new Vector3(randomX, SampleTerrain(randomX, randomY), randomY);
@@ -143,12 +154,10 @@ public class PerlinGeneration : MonoBehaviour
     {
         for (int i = 0; i < numberOfRocks; i++)
         {
-            // Generate a random position within the terrain bounds
             float randomX = Random.Range(0f, width);
             float randomY = Random.Range(0f, height);
             Vector3 randomPosition = new Vector3(randomX, 0f, randomY);
 
-            // Check if the position is too close to an existing tree
             bool tooClose = false;
             foreach (GameObject rock in GameObject.FindGameObjectsWithTag("Rock"))
             {
@@ -159,7 +168,6 @@ public class PerlinGeneration : MonoBehaviour
                 }
             }
 
-            // Spawn a tree prefab if the position is valid
             if (!tooClose)
             {
                 Vector3 rockPosition = new Vector3(randomX, SampleTerrain(randomX, randomY), randomY);
@@ -172,12 +180,10 @@ public class PerlinGeneration : MonoBehaviour
     {
         for (int i = 0; i < numberOfHouse; i++)
         {
-            // Generate a random position within the terrain bounds
             float randomX = Random.Range(0f, width);
             float randomY = Random.Range(0f, height);
             Vector3 randomPosition = new Vector3(randomX, 0f, randomY);
 
-            // Check if the position is too close to an existing tree
             bool tooClose = false;
             foreach (GameObject house in GameObject.FindGameObjectsWithTag("House"))
             {
@@ -188,7 +194,6 @@ public class PerlinGeneration : MonoBehaviour
                 }
             }
 
-            // Spawn a tree prefab if the position is valid
             if (!tooClose)
             {
                 Vector3 housePosition = new Vector3(randomX, SampleTerrain(randomX, randomY), randomY);
