@@ -8,14 +8,16 @@ TagManager:
   - Tree
   - House
   - Undefined
+  - Ground
+  - Coin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - WhatIsGround
   - Water
   - UI
-  - 
+  - WhatIsPlayer
   - 
   - 
   - 

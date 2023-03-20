@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 353412667}
   - component: {fileID: 353412670}
   - component: {fileID: 353412666}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PerlinTerrain
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -213,6 +213,7 @@ MonoBehaviour:
   housePrefab: {fileID: 120862, guid: a0f4d4c6b680301498750c356043900a, type: 3}
   goldcoinPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
   playerPrefab: {fileID: 2269393023965653462, guid: c2b417532bf12f649b110188320a5ded, type: 3}
+  botOnePrefabs: {fileID: 6988706970737741165, guid: 0e2e177dfc7b4f944b7b904fc427ca8b, type: 3}
   numberOfCoins: 6
   numberOfHouse: 4
   numberOfRocks: 10
@@ -509,7 +510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1915775247
 MonoBehaviour:
   m_ObjectHideFlags: 0

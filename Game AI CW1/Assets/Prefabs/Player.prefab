@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2269393023690066505}
   - component: {fileID: 2269393023690066614}
   - component: {fileID: 58906923862934251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,9 +128,10 @@ GameObject:
   - component: {fileID: 2269393023965653480}
   - component: {fileID: 2269393023965653481}
   - component: {fileID: 2269393023965653485}
+  - component: {fileID: 2526458509328594925}
   - component: {fileID: 5547943501517289020}
   - component: {fileID: 2349062292957622941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -232,6 +233,18 @@ MonoBehaviour:
   agent: {fileID: 2349062292957622941}
   bulletPrefab: {fileID: 5517998485466047167, guid: b352e8238e53bd24283ea5d7fd552b81, type: 3}
   firePoint: {fileID: 4660306898820746764}
+--- !u!114 &2526458509328594925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269393023965653462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9587a420c542e6647bbf2fbad999b522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &5547943501517289020
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -279,7 +292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4660306898820746764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

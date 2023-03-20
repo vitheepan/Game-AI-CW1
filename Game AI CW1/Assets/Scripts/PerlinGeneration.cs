@@ -21,6 +21,7 @@ public class PerlinGeneration : MonoBehaviour
     public GameObject goldcoinPrefab;
 
     public GameObject playerPrefab;
+    public GameObject botOnePrefabs;
 
     public int numberOfCoins = 10;
     public int numberOfHouse = 10;
@@ -55,6 +56,10 @@ public class PerlinGeneration : MonoBehaviour
 
         Vector3 playerSpawnPoint = new Vector3(Random.Range(0f, 1f) * width, 0f, Random.Range(0f, 1f) * height);
         Instantiate(playerPrefab, playerSpawnPoint, Quaternion.identity);
+
+        Vector3 botOneSpawnPoint = new Vector3(Random.Range(0f, 1f) * width, 0f, Random.Range(0f, 1f) * height);
+        Instantiate(botOnePrefabs, botOneSpawnPoint, Quaternion.identity);
+
     }
 
     private void GenerateTerrain()
