@@ -8,9 +8,9 @@ public class EnemyBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }
