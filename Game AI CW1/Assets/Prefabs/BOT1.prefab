@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3495796701265224698}
   - component: {fileID: 158896409610310173}
   - component: {fileID: 9134267495826008437}
+  - component: {fileID: 3866274915722541163}
   m_Layer: 0
   m_Name: BOT1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 1126803213802464653}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5460195790771784404
 MeshFilter:
@@ -144,14 +145,28 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
-  timeBetweeenAttacks: 0.5
-  bulletPrefab: {fileID: 5517998485466047167, guid: b352e8238e53bd24283ea5d7fd552b81, type: 3}
+  timeBetweeenAttacks: 2
+  bulletPrefab: {fileID: 5517998485466047167, guid: a8e74914d3b1ac14d8e6f9b49338bebc, type: 3}
   firePoint: {fileID: 1126803213802464653}
   health: 100
   sightRange: 20
   attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
+--- !u!114 &3866274915722541163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988706970737741165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d835464272b7aab4b80626a6819f5d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 100
+  enemyCurrentHealth: 0
 --- !u!1 &8796100222359620457
 GameObject:
   m_ObjectHideFlags: 0

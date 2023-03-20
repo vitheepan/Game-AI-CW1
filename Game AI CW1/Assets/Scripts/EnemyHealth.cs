@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    public int health = 100;
-    public int currentHealth;
+    public int enemyHealth = 100;
+    public int enemyCurrentHealth;
 
     private bool isDead;
 
     void Start()
     {
-        currentHealth = health;
+        enemyCurrentHealth = enemyHealth;
     }
 
     public void TakeDamage(int amount)
@@ -21,10 +21,10 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
-        currentHealth -= amount;
-        Debug.Log("Current Health: " + currentHealth);
+        enemyCurrentHealth -= amount;
+        Debug.Log("Enemy Current Health: " + enemyCurrentHealth);
 
-        if (currentHealth <= 0)
+        if (enemyCurrentHealth <= 0)
         {
             Die();
         }
