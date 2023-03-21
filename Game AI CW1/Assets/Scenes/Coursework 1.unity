@@ -214,6 +214,7 @@ MonoBehaviour:
   goldcoinPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
   playerPrefab: {fileID: 2269393023965653462, guid: c2b417532bf12f649b110188320a5ded, type: 3}
   botOnePrefabs: {fileID: 6988706970737741165, guid: 56503b995b810d24eb409978f1b5bb23, type: 3}
+  botTwoPrefabs: {fileID: 6988706970737741165, guid: 0e2e177dfc7b4f944b7b904fc427ca8b, type: 3}
   numberOfCoins: 6
   numberOfHouse: 4
   numberOfRocks: 10
