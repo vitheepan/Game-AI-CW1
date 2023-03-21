@@ -6,22 +6,12 @@ using UnityEngine.UI;
 public class BOTStatus : MonoBehaviour
 {
     public Text statusText;
-    public BOT1 botOne;
+    
+    public BOT1FSM npc;
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        if (botOne.playerInAttackRange)
-        {
-            statusText.text = "STATUS: ATTACK";
-        }
-        else if (botOne.playerInSightRange)
-        {
-            statusText.text = "STATUS: CHASE";
-        }
-        else
-        {
-            statusText.text = "STATUS: PATROL";
-        }
+        statusText.text = "State: " + npc.currentState.ToString();
     }
 }

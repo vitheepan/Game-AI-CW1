@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398706624414507573}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +36,7 @@ RectTransform:
   - {fileID: 5935379873817500226}
   m_Father: {fileID: 4748395176647714325}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1.9676}
@@ -359,8 +359,7 @@ GameObject:
   - component: {fileID: 2126502822142014951}
   - component: {fileID: 3495796701265224698}
   - component: {fileID: 158896409610310173}
-  - component: {fileID: 9134267495826008437}
-  - component: {fileID: 3866274915722541163}
+  - component: {fileID: 2422974953982040515}
   - component: {fileID: 7476394226727164167}
   m_Layer: 0
   m_Name: BOT1
@@ -471,7 +470,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &9134267495826008437
+--- !u!114 &2422974953982040515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -480,42 +479,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6988706970737741165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a41483b682f35b49ba114bd1edbc959, type: 3}
+  m_Script: {fileID: 11500000, guid: c7c2501036f5f8b498e4a7f7fd108d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 158896409610310173}
+  currentState: 0
   player: {fileID: 2269393023965653482, guid: c2b417532bf12f649b110188320a5ded, type: 3}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 64
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 5
-  timeBetweeenAttacks: 5
+  agent: {fileID: 158896409610310173}
+  patrolRadius: 10
+  chaseDistance: 10
+  attackDistance: 5
   bulletPrefab: {fileID: 5517998485466047167, guid: a8e74914d3b1ac14d8e6f9b49338bebc, type: 3}
   firePoint: {fileID: 1126803213802464653}
-  health: 100
-  sightRange: 20
-  attackRange: 12
-  playerInSightRange: 0
-  playerInAttackRange: 0
---- !u!114 &3866274915722541163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6988706970737741165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d835464272b7aab4b80626a6819f5d96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 100
-  enemyCurrentHealth: 0
   healthSlider: {fileID: 6534240039836946779}
+  timeBetweeenAttacks: 5
+  maxHealth: 100
+  retreatThreshold: 50
 --- !u!114 &7476394226727164167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusText: {fileID: 5171530620257284536}
-  botOne: {fileID: 9134267495826008437}
+  npc: {fileID: 2422974953982040515}
 --- !u!1 &7424083269084359317
 GameObject:
   m_ObjectHideFlags: 0
